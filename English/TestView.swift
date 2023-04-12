@@ -9,16 +9,54 @@ import SwiftUI
 
 
 
-struct TestView: View {
+struct TestView: View
+{
     
-    var body: some View {
-        
-        VStack{
-            Text("Hello world")
+    @State var Lst: [String] = ["A", "B", "C", "D"]
+    @State var LStr: [String] = ["a", "b", "c", "d"]
+    @State var InputLst: [String] = ["", "", "", "", ""]
+    @State var InputLStr: [String] = ["", "", "", "", ""]
+    
+    var body: some View
+    {
+        VStack
+        {
+            NavigationView
+            {
+                Form
+                {
+                    Section
+                    {
+                        ForEach(0..<Lst.count)
+                        { Index in
+                            
+                            if(Index % 2 == 0)
+                            {
+                                HStack{
+                                    Text("\(Lst[Index]): ")
+                                    TextField("\(Lst[Index])", text: $InputLst[Index])
+                                    
+                                    if(LStr[Index] == InputLst[Index])
+                                    {
+                                        Text("✅")
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                HStack{
+                                    Text("\(LStr[Index]): ")
+                                    TextField("\(LStr[Index])", text: $InputLStr[Index])
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
-
+        
     }
-    
 }
 
 struct TestView_Previews: PreviewProvider {
