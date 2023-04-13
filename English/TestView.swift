@@ -13,9 +13,10 @@ struct TestView: View
 {
     
     @State var Lst: [String] = ["A", "B", "C", "D"]
-    @State var LStr: [String] = ["a", "b", "c", "d"]
+    @State var LStr: [String] = ["에이", "비", "씨", "디"]
     @State var InputLst: [String] = ["", "", "", "", ""]
     @State var InputLStr: [String] = ["", "", "", "", ""]
+    
     
     var body: some View
     {
@@ -35,28 +36,32 @@ struct TestView: View
                                 HStack{
                                     Text("\(Lst[Index]): ")
                                     TextField("\(Lst[Index])", text: $InputLst[Index])
-                                    
-                                    if(LStr[Index] == InputLst[Index])
-                                    {
-                                        Text("✅")
-                                    }
+                                        .textInputAutocapitalization(.never) // 소문자 입력
+                                        .textFieldStyle(.roundedBorder)
                                 }
-                            }
+                            } // if end
                             else
                             {
-                                HStack{
+                                HStack
+                                {
                                     Text("\(LStr[Index]): ")
                                     TextField("\(LStr[Index])", text: $InputLStr[Index])
+                                        .textInputAutocapitalization(.never) // 소문자 입력
+                                        .textFieldStyle(.roundedBorder)
                                 }
+                                
                             }
+                            // else end
                         }
-                    }
+                        
+                    } // section end
                 }
-            }
+            } // navigationView
             
         }
         
     }
+    
 }
 
 struct TestView_Previews: PreviewProvider {
