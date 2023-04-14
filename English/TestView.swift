@@ -26,37 +26,21 @@ struct TestView: View
             {
                 Form
                 {
-                    Section
-                    {
-                        ForEach(0..<Lst.count)
-                        { Index in
-                            
-                            if(Index % 2 == 0)
+                    ForEach(0..<Lst.count)
+                    { Index in
+                        
+                        Section
+                        {
+                            VStack
                             {
-                                HStack{
-                                    Text("\(Lst[Index]): ")
-                                    TextField("\(Lst[Index])", text: $InputLst[Index])
-                                        .textInputAutocapitalization(.never) // 소문자 입력
-                                        .textFieldStyle(.roundedBorder)
-                                }
-                            } // if end
-                            else
-                            {
-                                HStack
-                                {
-                                    Text("\(LStr[Index]): ")
-                                    TextField("\(LStr[Index])", text: $InputLStr[Index])
-                                        .textInputAutocapitalization(.never) // 소문자 입력
-                                        .textFieldStyle(.roundedBorder)
-                                }
-                                
+                                Text("\(Lst[Index])")
+                                TextField("\(Lst[Index])", text: $InputLst[Index])
                             }
-                            // else end
                         }
                         
-                    } // section end
+                    }
                 }
-            } // navigationView
+            }
             
         }
         

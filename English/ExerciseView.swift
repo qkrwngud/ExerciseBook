@@ -20,24 +20,18 @@ struct ExerciseView: View
             NavigationView{
                 Form
                 {
-                    Section(header: Text("단어")){
-                        ForEach(0..<Lst.count){ Index in
-                            Section
-                            {
-                                HStack
-                                {
-                                    Text("\(Lst[Index])")
-                                    TextField("\(Lst[Index])", text: $InputLst[Index])
-                                    Spacer()
-                                    Text("\(LStr[Index])")
-                                    TextField("\(LStr[Index])", text: $InputLStr[Index])
-                                    Spacer()
-                                }
-                            }
+                    ForEach(0..<Lst.count)
+                    { Index in
+                        
+                        Section()
+                        {
+                            Text("\(Lst[Index])")
+                            Text("\(LStr[Index])")
                         }
-                    }
+                    }.listRowBackground(Color.white)
                 }
             }.navigationTitle("ExerciseView")
+            
         }
     }
 }
