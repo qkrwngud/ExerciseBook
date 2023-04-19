@@ -14,9 +14,9 @@ struct TestView: View
     
     @State var Lst: [String] = ["A", "B", "C", "D"]
     @State var LStr: [String] = ["에이", "비", "씨", "디"]
-    @State var InputLst: [String] = ["", "", "", "", ""]
-    @State var InputLStr: [String] = ["", "", "", "", ""]
+    @State var InputStr: [String] = ["", "", "", "", ""]
     
+    @State var Count: Int = 0
     
     var body: some View
     {
@@ -34,7 +34,13 @@ struct TestView: View
                             VStack
                             {
                                 Text("\(Lst[Index])")
-                                TextField("\(Lst[Index])", text: $InputLst[Index])
+                                TextField("\(Lst[Index])", text: $InputStr[Index])
+                                    .multilineTextAlignment(.center)
+                                
+                                if( LStr[Index] == InputStr[Index])
+                                {
+                                    
+                                }
                             }
                         }
                         

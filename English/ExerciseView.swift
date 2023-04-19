@@ -28,7 +28,8 @@ struct ExerciseView: View
                             Text("\(Lst[Index])")
                             Text("\(LStr[Index])")
                         }
-                    }.listRowBackground(Color.white)
+                        
+                    }
                 }
             }.navigationTitle("ExerciseView")
             
